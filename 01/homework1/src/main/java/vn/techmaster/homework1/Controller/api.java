@@ -1,4 +1,4 @@
-package vn.techmaster.homework1.Controller;
+package vn.techmaster.homework1.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
-import vn.techmaster.homework1.Model.Student;
+import vn.techmaster.homework1.model.Student;
 
 @Controller
 @RequestMapping("")
@@ -32,7 +32,7 @@ public class api {
 
     @GetMapping("/random")
     @ResponseBody
-    public String Random() {
+    public String random() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 8; i++) {
             int number = randomNumber(0, random.length() - 1);
@@ -44,7 +44,7 @@ public class api {
 
     @GetMapping("/qoute")
     @ResponseBody
-    public String Listquote() {
+    public String listQuote() {
         int count = randomNumber(1,5);
         switch(count) {
             case 1:
@@ -87,7 +87,7 @@ public class api {
 
     @PostMapping("/student")
     @ResponseBody
-    public List<Student> student(@RequestParam String id, @RequestParam String name,
+    public List<Student> addStudent(@RequestParam String id, @RequestParam String name,
             @RequestParam String classManager) {
         students.add(new Student(id, name, classManager));
         return students;

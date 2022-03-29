@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import vn.techmaster.joblisting.DTO.JobRequest;
+import vn.techmaster.joblisting.dto.JobRequest;
 import vn.techmaster.joblisting.model.Job;
 
 @RestController
@@ -30,27 +30,27 @@ public class RestApi {
   }
 
   @GetMapping
-  public List<Job> getjobs() {
+  public List<Job> getJobs() {
     return jobs.values().stream().sorted(Comparator.comparing(Job::getMinSalary)).toList();
   }
 
   @GetMapping("/job/sortbylocation")
-  public List<Job> getjobsbylocation() {
+  public List<Job> getJobsByLocation() {
     return jobs.values().stream().sorted(Comparator.comparing(Job::getLocation)).toList();
   }
 
   @GetMapping("/job/salary/{salary}")
-  public List<Job> getjobsbysalary(@PathVariable("salary") int salary) {
+  public List<Job> getJobsBySalary(@PathVariable("salary") int salary) {
     return jobs.values().stream().filter(job -> job.matchWithMoney(salary)).collect(Collectors.toList());
   }
 
   @GetMapping("/job/keyword/{keyword}")
-  public List<Job> getjobsbysearch(@PathVariable("keyword") String keyword) {
+  public List<Job> getJobsBySearch(@PathVariable("keyword") String keyword) {
     return jobs.values().stream().filter(job -> job.matchWithKeyword(keyword)).collect(Collectors.toList());
   }
 
   @GetMapping("/job/keyword/{title}/{detail}")
-  public List<Job> getjobsbysearchdetail(@PathVariable("title") String title,
+  public List<Job> getJobsBySearchDetail(@PathVariable("title") String title,
       @PathVariable("detail") String description) {
     return jobs.values().stream().filter(job -> job.matchWithTitleDescriptionKeyword(title, description))
         .collect(Collectors.toList());

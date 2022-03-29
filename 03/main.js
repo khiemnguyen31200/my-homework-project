@@ -3,36 +3,40 @@ rawNumber=1
 for (let i= 1; i <= number; i++) {
     rawNumber*=i 
 }
-console.log(rawNumber)
+return rawNumber
 }
 
 function reverseString(string){
     let arrayChar = string.split("")
     let reverse= arrayChar.reverse()
     let newString = reverse.join("")
-    console.log(newString)
+   return newString
 } 
 function translate(code){
 switch (code) {
     case "VN":
-        console.log("Xin Chào")
+        return "Xin Chào"
         break;
     case "EN":
-        console.log("Hello")
+        return "Hello"
         break;
     case "SG":
-        console.log("Hello")
+        return"Hello"
         break;
     case "JP":
-        console.log("こんにちは")
+        return"こんにちは"
         break;
 }
 }
 function subString(str){
     s=str.substring(0,10)
-    console.log(s+"...")
+    returns+"..."
 }
-calculateFactorial(5)
-reverseString("123")
-translate("JP")
-subString("xinchaocacbandenvoiTechmaster") 
+console.log(calculateFactorial(5))
+console.log(reverseString("hello"))
+console.log(translate("JP"))
+console.log(subString("xinchaocacbandenvoiTechmaster") )
+
+
+
+

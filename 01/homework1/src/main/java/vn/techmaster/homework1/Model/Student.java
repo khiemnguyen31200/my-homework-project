@@ -1,4 +1,4 @@
-package vn.techmaster.homework1.Model;
+package vn.techmaster.homework1.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
