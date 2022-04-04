@@ -16,6 +16,7 @@ public class EmployerRepository {
   
   public EmployerRepository(){
     employerLists.add(new Employer(uuid,"TopDEV","topdev.vn","apply@topdev.vn","Ha Noi"));
+    employerLists.add(new Employer(uuid,"ITViec","itviec.com","apply@itviec.com","Ho Chi Minh"));
   }
 
   public List<Employer> getAll() {
