@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head th:replace="template::head"> </head>
+
+<body>
+    <div class="nav" >
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs|pills" id="navId" role="tablist">
+          <nav class="navbar navbar-expand-sm navbar-dark fixed-top" style="background-color: grey">
+            <div class="container">
+              <a th:href="@{/}" class="navbar-brand" style="color: goldenrod;">Home </a>
+              <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" th:href="@{/employer/add}">Add new</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </ul>
+        <div class="whitespace" style="padding-top: 56px"></div>
+      </div>
+  <div class="context" align="center">
+    <h1 style="font-weight: bold;">Họ và tên</h1>
+    <h1 th:text="${employer.name}"></h1><br>
+    <h1 style="font-weight: bold;">Website</h1>
+    <h1 th:text="${employer.website}"></h1><br>
+    <p style="font-weight: bold;">Địa chỉ email</p>
+    <p th:text="${employer.email}">
+    <p style="font-weight: bold;">Địa chỉ</p>
+    <p th:text="${employer.address}"></p><br>
+    
+    <a th:href="@{/employer/list}"><button type="button" class="btn btn-primary" style="background-color: red;">Home</button></a>
+    <a th:href="@{/employer/edit/{id}(id=${employer.id})}"><button type="button" class="btn btn-primary" style="background-color: burlywood;">Edit</button></a>
+    <a th:href="@{/employer/delete/{id}(id=${employer.id})}"><button type="button" class="btn btn-primary" style="background-color: black;" >Delete</button></a>
+    
+  </div>
+
+</html>
