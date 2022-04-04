@@ -11,7 +11,12 @@ import vn.techmasterr.jobhunt.model.Employer;
 
 @Repository
 public class EmployerRepository {
+  String uuid = UUID.randomUUID().toString();
   List<Employer> employerLists = new ArrayList<>();
+  
+  public EmployerRepository(){
+    employerLists.add(new Employer(uuid,"TopDEV","topdev.vn","apply@topdev.vn","Ha Noi"));
+  }
 
   public List<Employer> getAll() {
     return employerLists;
@@ -22,7 +27,6 @@ public class EmployerRepository {
   }
 
   public void add(Employer employer) {
-    String uuid = UUID.randomUUID().toString();
     employer.setId(uuid);
     employerLists.add(employer);
   }
