@@ -43,7 +43,6 @@ public class EmployerRepository {
 
   public void deleteByID(String id) {
     get(id).ifPresent(existemployer -> employerLists.remove(existemployer));
-
   }
 
   public void delete(Employer employer) {

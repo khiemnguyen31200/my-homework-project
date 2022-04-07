@@ -2,7 +2,7 @@ const btn = document.getElementById('btn');
 const image = document.getElementById('image');
 const select = document.getElementById('breed-list');
 const list = document.querySelector(".list ul");
-let ele =[]
+let elements =[]
 
 // Vừa load trang phải gọi API để render danh sách breed
 // API : https://dog.ceo/api/breeds/list/all
@@ -27,9 +27,9 @@ getBreedList()
 
 btn.addEventListener("click", async function () {
     list.innerHTML = ""
-    ele = []
+    elements = []
     let res = await axios.get(`https://dog.ceo/api/breed/${select.value}/list`)
-    console.log(res.data)
+
     renderSubBreed(res.data.message)
     if (list.innerText=="") {
         const li = document.createElement("li")
@@ -38,15 +38,14 @@ btn.addEventListener("click", async function () {
     }
 })
 function renderSubBreed(breeds) {
-    
     for (let i = 0; i < breeds.length; i++) {
             list.innerHTML += `<li onclick="ShowPhoto(${i})">${breeds[i]}</li>`
-            ele[i] = breeds[i]
+            elements[i] = breeds[i]
     }
 }
 async function ShowPhoto(subBreed){
     try {
-        let res=await axios.get(`https://dog.ceo/api/breed/${select.value}/${ele[subBreed]}/images/random`)       
+        let res=await axios.get(`https://dog.ceo/api/breed/${select.value}/${elements[subBreed]}/images/random`)       
         image.src = res.data.message
     } catch (error) {
         console.log(error.response.data.message)
