@@ -8,12 +8,13 @@ let elements =[]
 // API : https://dog.ceo/api/breeds/list/all
 
 async function getBreedList() {
-    // Gọi API để lấy danh sách giống loài
-    let res = await axios.get("https://dog.ceo/api/breeds/list/all")
-    // Sau khi có data thì hiển thị kết quả trên giao diện
-    renderBreed(res.data.message)
+    try {
+        let res = await axios.get("https://dog.ceo/api/breeds/list/all")
+        renderBreed(res.data.message)
+    } catch (error) {
+        console.log(error.response.data.message)
+    }   
 }
-
 function renderBreed(breeds) {
     for (const breed in breeds) {
         if (Object.hasOwnProperty.call(breeds, breed)) {
@@ -24,12 +25,10 @@ function renderBreed(breeds) {
     }
 }
 getBreedList()
-
 btn.addEventListener("click", async function () {
     list.innerHTML = ""
     elements = []
     let res = await axios.get(`https://dog.ceo/api/breed/${select.value}/list`)
-
     renderSubBreed(res.data.message)
     if (list.innerText=="") {
         const li = document.createElement("li")
