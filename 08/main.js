@@ -46,8 +46,7 @@ function renderSubBreed(breeds) {
 }
 async function ShowPhoto(subBreed){
     try {
-        let res=await axios.get(`https://dog.ceo/api/breed/${select.value}/${ele[subBreed]}/images/random`) 
-        console.log(res)       
+        let res=await axios.get(`https://dog.ceo/api/breed/${select.value}/${ele[subBreed]}/images/random`)       
         image.src = res.data.message
     } catch (error) {
         console.log(error.response.data.message)
