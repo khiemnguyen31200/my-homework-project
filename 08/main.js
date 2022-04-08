@@ -31,7 +31,7 @@ btn.addEventListener("click", async function () {
     let res = await axios.get(`https://dog.ceo/api/breed/${select.value}/list`)
     renderSubBreed(res.data.message)
     if (list.innerText=="") {
-        const li = document.createElement("li")
+            const li = document.createElement("li")
             li.innerText = "None"
             list.insertAdjacentElement("beforeend", li) 
     }
