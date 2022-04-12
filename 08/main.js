@@ -1,8 +1,10 @@
 const btn = document.getElementById('btn');
 const image = document.getElementById('image');
+const result= document.querySelector('body > div.result')
 const select = document.getElementById('breed-list');
 const list = document.querySelector(".list ul");
 let elements =[]
+
 
 // Vừa load trang phải gọi API để render danh sách breed
 // API : https://dog.ceo/api/breeds/list/all
@@ -34,6 +36,9 @@ btn.addEventListener("click", async function () {
             const li = document.createElement("li")
             li.innerText = "None"
             list.insertAdjacentElement("beforeend", li) 
+            result.style.display="none";
+    }else {
+            result.style.display="block";
     }
 })
 function renderSubBreed(breeds) {
