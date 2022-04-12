@@ -36,9 +36,10 @@ btn.addEventListener("click", async function () {
             const li = document.createElement("li")
             li.innerText = "None"
             list.insertAdjacentElement("beforeend", li) 
-            result.style.display="none";
+            result.style.display="none"
     }else {
-            result.style.display="block";
+            result.style.display="block"
+            image.src=""
     }
 })
 function renderSubBreed(breeds) {
