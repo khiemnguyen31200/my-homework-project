@@ -38,8 +38,8 @@ btn.addEventListener("click", async function () {
             list.insertAdjacentElement("beforeend", li) 
             result.style.display="none"
     }else {
-            result.style.display="block"
             image.src=""
+            result.style.display="block" 
     }
 })
 function renderSubBreed(breeds) {
