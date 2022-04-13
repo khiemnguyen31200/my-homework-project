@@ -10,13 +10,11 @@ import org.springframework.stereotype.Repository;
 import vn.techmasterr.jobhunt.model.Employer;
 
 @Repository
-public class EmployerRepository {
-  String uuid = UUID.randomUUID().toString();
+public class EmployerRepository {  
   List<Employer> employerLists = new ArrayList<>();
-  
   public EmployerRepository(){
-    employerLists.add(new Employer(uuid,"TopDEV","topdev.vn","apply@topdev.vn","Ha Noi"));
-    employerLists.add(new Employer(uuid,"ITViec","itviec.com","apply@itviec.com","Ho Chi Minh"));
+    employerLists.add(new Employer(UUID.randomUUID().toString(),"TopDEV","topdev.vn","apply@topdev.vn","Ha Noi"));
+    employerLists.add(new Employer(UUID.randomUUID().toString(),"ITViec","itviec.com","apply@itviec.com","Ho Chi Minh"));
   }
 
   public List<Employer> getAll() {
@@ -28,7 +26,7 @@ public class EmployerRepository {
   }
 
   public void add(Employer employer) {
-    employer.setId(uuid);
+    employer.setId(UUID.randomUUID().toString());
     employerLists.add(employer);
   }
 
