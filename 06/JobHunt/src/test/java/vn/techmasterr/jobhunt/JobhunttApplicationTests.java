@@ -10,4 +10,6 @@ class jobhuntApplicationTests {
 	void contextLoads() {
 	}
 
+    public static class StorageServiceTest {
+    }
 }

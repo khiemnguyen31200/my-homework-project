@@ -26,21 +26,23 @@
     <table class="table table-striped w-auto">
       <thead class="bg-success text-white" style="background-color: aquamarine;">
         <tr style="text-align: center">
-          <th>#</th>
+
+          <th></th>
           <th>Name</th>
           <th>Website</th>
           <th>Email</th>
-          <th>Address</th>
+          <!-- <th>Address</th> -->
           <th>See full info</th>
         </tr>
       </thead>
       <tbody>
         <tr th:each="employer,iStat:${employers}">
-          <td th:text="${iStat.index} +1"></td>
+
+          <td><img th:src="|/logo/${employer.logoPath}|" alt="logo" width="50px" height="20px"></td>
           <td th:text="${employer.name}"></td>
-          <td th:text="${employer.website}"></td>
+          <td><a th:href="${employer.website}" th:text="${employer.website}" target="_blank"></a></td>
           <td th:text="${employer.email}"></td>
-          <td th:text="${employer.address}"></td>
+          <!-- <td th:text="${employer.address}"></td> -->
           <td><a th:href="@{/employer/{id}(id=${employer.id})}" class="btn btn-primary" style="background-color: lightskyblue" >Click here</a></td>
         </tr>
       </tbody>
