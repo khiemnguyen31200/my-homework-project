@@ -3,7 +3,6 @@ package vn.techmasterr.jobhunt.controller;
 import java.util.Optional;
 
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,23 +22,26 @@ import vn.techmasterr.jobhunt.model.Job;
 @Controller
 @RequestMapping("/job")
 public class JobController {
-    @Autowired JobRepository jobRepo;
-    @Autowired EmployerRepository empRepo;
+  @Autowired
+  JobRepository jobRepo;
+  @Autowired
+  EmployerRepository empRepo;
 
-    @GetMapping("/list")
-    public String listAll(Model model) {
-      model.addAttribute("jobs", jobRepo.getAll());
-      return "alljob";
-    }
+  @GetMapping("/list")
+  public String listAll(Model model) {
+    model.addAttribute("jobs", jobRepo.getAll());
+    return "alljob";
+  }
 
-    @GetMapping(value = "/{id}")
-    public String getByID(@PathVariable("id") String id, Model model) {
+  @GetMapping(value = "/{id}")
+  public String getByID(@PathVariable("id") String id, Model model) {
     Optional<Job> job = jobRepo.get(id);
     if (job.isPresent()) {
       model.addAttribute("job", job.get());
     }
     return "jobdetail";
   }
+
   @GetMapping("/add")
   public String add(Model model) {
     model.addAttribute("job", new Job());
@@ -47,20 +49,22 @@ public class JobController {
     model.addAttribute("citycode", CityEnum.values());
     return "jobform";
   }
-  @PostMapping(value = "/save") //,consumes = {"multipart/form-data}"}
-  public String save(@Valid @ModelAttribute("job") Job job, BindingResult result, Model model) {//Kết quả nếu thành công trả về success
+
+  @PostMapping(value = "/save") // ,consumes = {"multipart/form-data}"}
+  public String save(@Valid @ModelAttribute("job") Job job, BindingResult result, Model model) {// Kết quả nếu thành
+                                                                                                // công trả về success
     if (result.hasErrors()) {
       model.addAttribute("job", job);// Để hứng lỗi sai
       return "jobform";
     }
-
-   if (job.getId()!="") {
-       jobRepo.update(job);
-   } else {
-       jobRepo.add(job);
-   }
+    if (job.getId() != "") {
+      jobRepo.update(job);
+    } else {
+      jobRepo.add(job);
+    }
     return "redirect:/job/list";
   }
+
   @GetMapping(value = "/edit/{id}")
   public String editEmployerById(@PathVariable("id") String id, Model model) {
     Optional<Job> job = jobRepo.get(id);
@@ -71,6 +75,7 @@ public class JobController {
     }
     return "jobform";
   }
+
   @GetMapping(value = "/delete/{id}")
   public String deleteByID(@PathVariable("id") String id) {
     jobRepo.deleteByID(id);

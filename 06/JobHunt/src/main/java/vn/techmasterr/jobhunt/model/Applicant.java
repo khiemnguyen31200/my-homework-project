@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Applicant{
   private String id;
+  private String jobId;
   private String fullName;
   private String email;
   private String phoneNumber;

@@ -15,7 +15,7 @@ public class Employer {
     private String name;
     private String website;
     private String email;
-    // private String address;
+    private String address;
     private String logoPath;
 
 }

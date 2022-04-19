@@ -25,13 +25,15 @@
     <img th:src="|/logo/${employer.logoPath}|" width="100px" height="60px">
     <h1 style="font-weight: bold;">Website</h1>
     <h2 th:text="${employer.website}"></h2><br>
+    <h1 style="font-weight: bold;">Address</h1>
+    <h2 th:text="${employer.address}"></h2><br>
     <h1 style="font-weight: bold;">Địa chỉ email</h1>
     <h2 th:text="${employer.email}"></h2>
     
     <a th:href="@{/employer/list}"><button type="button" class="btn btn-primary" style="background-color: red;">Home</button></a>
-    <a th:href="@{/employer/edit/{id}(id=${employer.id})}"><button type="button" class="btn btn-primary" style="background-color: burlywood;">Edit</button></a>
-    <a th:href="@{/employer/delete/{id}(id=${employer.id})}"><button type="button" class="btn btn-primary" style="background-color: black;" >Delete</button></a>
-    
+    <a th:href="@{/employer/edit/{id}(id=${employer.id})}"><button type="button" class="btn btn-primary" style="background-color: burlywood;">Edit Company</button></a>
+    <a th:href="@{/employer/delete/{id}(id=${employer.id})}"><button type="button" class="btn btn-primary" style="background-color: black;" >Delete Company</button></a>
+    <a th:href="@{/job/add}"><button type="button" class="btn btn-primary" style="background-color: green;">Add New Job</button></a>
   </div>
 
 </html>

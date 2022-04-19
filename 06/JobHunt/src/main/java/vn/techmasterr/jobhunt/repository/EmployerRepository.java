@@ -15,10 +15,10 @@ public class EmployerRepository {
 
   private ConcurrentHashMap<String, Employer> employers = new ConcurrentHashMap<>();
   public EmployerRepository(){
-    employers.put(UUID.randomUUID().toString(),new Employer(UUID.randomUUID().toString(),"CMC"," https://fpt.com.vn","apply@fpt.com","cmc.png"));
-    employers.put(UUID.randomUUID().toString(),new Employer(UUID.randomUUID().toString(),"FPT"," https://cmc.com.vn,","apply@cmc.com","fpt.png"));
-    employers.put(UUID.randomUUID().toString(),new Employer(UUID.randomUUID().toString(),"Amazon"," https://amazon.com","apply@amazon.com","amazon.png"));
-    employers.put(UUID.randomUUID().toString(),new Employer(UUID.randomUUID().toString(),"Google"," https://google.com","apply@google.com","google.png"));
+    employers.put(UUID.randomUUID().toString(),new Employer(UUID.randomUUID().toString(),"CMC"," https://fpt.com.vn","apply@fpt.com","Hà Nội","cmc.png"));
+    employers.put(UUID.randomUUID().toString(),new Employer(UUID.randomUUID().toString(),"FPT"," https://cmc.com.vn","apply@cmc.com","Hồ Chí Minh","fpt.png"));
+    employers.put(UUID.randomUUID().toString(),new Employer(UUID.randomUUID().toString(),"Amazon"," https://amazon.com","apply@amazon.com","Seattle","amazon.png"));
+    employers.put(UUID.randomUUID().toString(),new Employer(UUID.randomUUID().toString(),"Google"," https://google.com","apply@google.com","San Jose","google.png"));
   }
 
   public List<Employer> getAll() {
